@@ -14,6 +14,11 @@ const level1 = {
         {x: 950, y: 220, vx: 1, service: 's3'},
         {x: 1250, y: 150, vx: -1, service: 'rds'}
     ],
+    obstacles: [
+        {x: 350, y: 360, type: 'spike'},
+        {x: 700, y: 352, type: 'pit'},
+        {x: 1100, y: 350, type: 'block'}
+    ],
     coins: [
         {x: 230, y: 250}, {x: 430, y: 170}, {x: 630, y: 90},
         {x: 930, y: 220}, {x: 1230, y: 150}, {x: 1430, y: 70}
