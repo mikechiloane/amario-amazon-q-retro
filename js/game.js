@@ -13,6 +13,7 @@ class Game {
         this.quizAnswers = [];
         this.selectedAnswer = -1;
         this.showingResult = false;
+        this.currentQuestionIndex = 0;
         
         this.camera = new Camera(this.canvas);
         this.player = new Player(50, 300);
@@ -72,15 +73,21 @@ class Game {
 
     showQuiz() {
         this.gameState = 'quiz';
-        this.quizQuestions = [Quiz.getRandomQuestion(), Quiz.getRandomQuestion()];
+        const allQuestions = [...Quiz.questions];
+        this.quizQuestions = [
+            allQuestions.splice(Math.floor(Math.random() * allQuestions.length), 1)[0],
+            allQuestions.splice(Math.floor(Math.random() * allQuestions.length), 1)[0]
+        ];
         this.quizAnswers = [];
         this.selectedAnswer = -1;
         this.showingResult = false;
         this.currentQuestion = this.quizQuestions[0];
+        this.currentQuestionIndex = 0;
     }
     
     nextQuestion() {
         this.selectedAnswer = -1;
+        this.currentQuestionIndex = 1;
         this.currentQuestion = this.quizQuestions[1];
     }
 
@@ -196,7 +203,7 @@ class Game {
         this.ctx.fillStyle = '#fff';
         this.ctx.font = '12px monospace';
         this.ctx.textAlign = 'center';
-        this.ctx.fillText(`AWS QUIZ - Question ${this.quizAnswers.length + 1}/2`, 400, 110);
+        this.ctx.fillText(`AWS QUIZ - Question ${this.currentQuestionIndex + 1}/2`, 400, 110);
         this.ctx.font = '10px monospace';
         this.ctx.fillText(this.currentQuestion.question, 400, 140);
         
