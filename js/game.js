@@ -13,6 +13,7 @@ class Game {
         this.quizAnswers = [];
         this.selectedAnswer = -1;
         this.showingResult = false;
+        this.currentQuestionIndex = 0;
         
         this.camera = new Camera(this.canvas);
         this.player = new Player(50, 300);
@@ -96,15 +97,21 @@ class Game {
 
     showQuiz() {
         this.gameState = 'quiz';
-        this.quizQuestions = [Quiz.getRandomQuestion(), Quiz.getRandomQuestion()];
+        const allQuestions = [...Quiz.questions];
+        this.quizQuestions = [
+            allQuestions.splice(Math.floor(Math.random() * allQuestions.length), 1)[0],
+            allQuestions.splice(Math.floor(Math.random() * allQuestions.length), 1)[0]
+        ];
         this.quizAnswers = [];
         this.selectedAnswer = -1;
         this.showingResult = false;
         this.currentQuestion = this.quizQuestions[0];
+        this.currentQuestionIndex = 0;
     }
     
     nextQuestion() {
         this.selectedAnswer = -1;
+        this.currentQuestionIndex = 1;
         this.currentQuestion = this.quizQuestions[1];
     }
 
@@ -276,6 +283,7 @@ class Game {
             }
         });
         this.ctx.fillText(line, 400, y);
+
         
         // Blocky option boxes
         this.ctx.textAlign = 'left';
