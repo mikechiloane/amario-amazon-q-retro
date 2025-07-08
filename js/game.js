@@ -14,6 +14,7 @@ class Game {
         this.selectedAnswer = -1;
         this.showingResult = false;
         this.currentQuestionIndex = 0;
+        this.lastSafePosition = {x: 50, y: 300};
         
         this.camera = new Camera(this.canvas);
         this.player = new Player(50, 300);
@@ -65,8 +66,8 @@ class Game {
         if (this.showingResult) {
             if (keyCode === 'Space') {
                 if (this.quizAnswers.filter(a => a).length >= 1) {
-                    this.player.x = 50;
-                    this.player.y = 300;
+                    this.player.x = this.lastSafePosition.x;
+                    this.player.y = this.lastSafePosition.y;
                     this.player.vx = 0;
                     this.player.vy = 0;
                     this.gameState = 'playing';
@@ -131,6 +132,18 @@ class Game {
         this.showingResult = false;
         this.currentQuestionIndex = 0;
     }
+    
+    isPlayerNearHazard() {
+        // Check if player is near any enemy or obstacle
+        const buffer = 60; // 3 steps back
+        for (let enemy of this.enemies) {
+            if (Math.abs(this.player.x - enemy.x) < buffer) return true;
+        }
+        for (let obstacle of this.obstacles) {
+            if (Math.abs(this.player.x - obstacle.x) < buffer) return true;
+        }
+        return false;
+    }
 
     update() {
         if (this.gameState !== 'playing') return;
@@ -156,6 +169,11 @@ class Game {
         }
         
         this.score += Collision.handleCoins(this.player, this.coins);
+        
+        // Update safe position if player is safe
+        if (this.player.grounded && !this.isPlayerNearHazard()) {
+            this.lastSafePosition = {x: this.player.x, y: this.player.y};
+        }
         
         // Check obstacle collision
         this.obstacles.forEach(obstacle => {

@@ -14,12 +14,15 @@
         .dpad { display: flex; gap: 10px; }
         .mobile-controls button { background: #0f3460; color: #fff; border: 2px solid #fff; padding: 15px 20px; font-family: 'Press Start 2P', monospace; font-size: 12px; border-radius: 0; box-shadow: 0 0 10px #0f3460; }
         .mobile-controls button:active { background: #ff6b6b; transform: scale(0.95); }
+        #restart-btn { background: #e74c3c; color: #fff; border: 2px solid #fff; padding: 10px 20px; font-family: 'Press Start 2P', monospace; font-size: 8px; margin: 10px; border-radius: 0; box-shadow: 0 0 10px #e74c3c; }
+        #restart-btn:hover { background: #c0392b; cursor: pointer; }
     </style>
 </head>
 <body>
     <h1>AMARIO</h1>
     <canvas id="game" width="800" height="400"></canvas>
     <p>Arrow Keys + Space to Jump | Score: <span id="score">0</span></p>
+    <button id="restart-btn" onclick="location.reload()">RESTART GAME</button>
     <div id="mobile-controls" class="mobile-controls">
         <div class="dpad">
             <button id="btn-left">←</button>
