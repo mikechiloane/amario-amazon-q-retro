@@ -1,35 +1,55 @@
 class Quiz {
     static questions = [
-        {
-            question: "Which AWS service is like a retro arcade cabinet - you pay per play?",
-            options: ["A) EC2", "B) Lambda", "C) RDS", "D) S3"],
-            correct: 1,
-            service: "lambda"
-        },
-        {
-            question: "Which service is like an old computer that runs 24/7 in your basement?",
-            options: ["A) Lambda", "B) S3", "C) EC2", "D) RDS"],
-            correct: 2,
-            service: "ec2"
-        },
-        {
-            question: "Which service is like a retro filing cabinet that never gets full?",
-            options: ["A) EC2", "B) Lambda", "C) RDS", "D) S3"],
-            correct: 3,
-            service: "s3"
-        },
-        {
-            question: "Which service is like an old library card catalog system?",
-            options: ["A) S3", "B) RDS", "C) Lambda", "D) EC2"],
-            correct: 1,
-            service: "rds"
-        },
-        {
-            question: "What does the λ symbol represent in AWS Lambda?",
-            options: ["A) Greek letter Lambda", "B) Function symbol", "C) Both A and B", "D) AWS Logo"],
-            correct: 2,
-            service: "lambda"
-        }
+        {question: "Which AWS service is like a retro arcade cabinet - you pay per play?", options: ["A) EC2", "B) Lambda", "C) RDS", "D) S3"], correct: 1},
+        {question: "Which service is like an old computer that runs 24/7 in your basement?", options: ["A) Lambda", "B) S3", "C) EC2", "D) RDS"], correct: 2},
+        {question: "Which service is like a retro filing cabinet that never gets full?", options: ["A) EC2", "B) Lambda", "C) RDS", "D) S3"], correct: 3},
+        {question: "Which service is like an old library card catalog system?", options: ["A) S3", "B) RDS", "C) Lambda", "D) EC2"], correct: 1},
+        {question: "What does the λ symbol represent in AWS Lambda?", options: ["A) Greek letter Lambda", "B) Function symbol", "C) Both A and B", "D) AWS Logo"], correct: 2},
+        {question: "Which service is like a retro jukebox - stores all your music?", options: ["A) EC2", "B) Lambda", "C) S3", "D) RDS"], correct: 2},
+        {question: "AWS EC2 stands for?", options: ["A) Elastic Compute Cloud", "B) Easy Cloud Computing", "C) Electronic Computer Cloud", "D) Elastic Container Cloud"], correct: 0},
+        {question: "Which service is serverless?", options: ["A) EC2", "B) RDS", "C) Lambda", "D) EBS"], correct: 2},
+        {question: "S3 stands for?", options: ["A) Simple Storage Service", "B) Secure Storage System", "C) Super Storage Solution", "D) Standard Storage Service"], correct: 0},
+        {question: "Which service is best for hosting a database?", options: ["A) S3", "B) Lambda", "C) EC2", "D) RDS"], correct: 3},
+        {question: "Lambda functions have a maximum execution time of?", options: ["A) 5 minutes", "B) 15 minutes", "C) 30 minutes", "D) 1 hour"], correct: 1},
+        {question: "Which service is like an old Polaroid camera - instant but temporary?", options: ["A) S3", "B) Lambda", "C) RDS", "D) EC2"], correct: 1},
+        {question: "EC2 instances are like?", options: ["A) Virtual machines", "B) Storage buckets", "C) Functions", "D) Databases"], correct: 0},
+        {question: "Which service automatically scales up and down?", options: ["A) RDS", "B) Lambda", "C) S3", "D) All of the above"], correct: 3},
+        {question: "S3 bucket names must be?", options: ["A) Globally unique", "B) Regionally unique", "C) Account unique", "D) Not unique"], correct: 0},
+        {question: "Which service is like a retro answering machine - responds to calls?", options: ["A) S3", "B) EC2", "C) Lambda", "D) RDS"], correct: 2},
+        {question: "RDS supports which database engines?", options: ["A) MySQL only", "B) PostgreSQL only", "C) Multiple engines", "D) NoSQL only"], correct: 2},
+        {question: "Lambda is triggered by?", options: ["A) Events", "B) Time schedules", "C) API calls", "D) All of the above"], correct: 3},
+        {question: "Which service is like a retro TV antenna - receives signals?", options: ["A) Lambda", "B) S3", "C) EC2", "D) RDS"], correct: 0},
+        {question: "EC2 pricing is based on?", options: ["A) Storage used", "B) Time running", "C) Data transfer", "D) All of the above"], correct: 3},
+        {question: "S3 storage classes include?", options: ["A) Standard only", "B) Standard and IA", "C) Multiple classes", "D) Glacier only"], correct: 2},
+        {question: "Which service is like a retro calculator - processes quickly?", options: ["A) S3", "B) Lambda", "C) RDS", "D) EC2"], correct: 1},
+        {question: "RDS provides?", options: ["A) Managed databases", "B) Raw compute", "C) Object storage", "D) Functions"], correct: 0},
+        {question: "Lambda supports which languages?", options: ["A) Python only", "B) Java only", "C) Multiple languages", "D) JavaScript only"], correct: 2},
+        {question: "Which service is like a retro safe - stores valuables securely?", options: ["A) Lambda", "B) EC2", "C) S3", "D) RDS"], correct: 2},
+        {question: "EC2 instances can be?", options: ["A) Started and stopped", "B) Only started", "C) Only stopped", "D) Never modified"], correct: 0},
+        {question: "S3 provides?", options: ["A) 99.9% durability", "B) 99.99% durability", "C) 99.999999999% durability", "D) 100% durability"], correct: 2},
+        {question: "Which service is like a retro radio - broadcasts to many?", options: ["A) RDS", "B) S3", "C) Lambda", "D) EC2"], correct: 1},
+        {question: "Lambda pricing is based on?", options: ["A) Requests and duration", "B) Storage only", "C) Time running", "D) Data transfer only"], correct: 0},
+        {question: "RDS backups are?", options: ["A) Manual only", "B) Automatic only", "C) Both manual and automatic", "D) Not supported"], correct: 2},
+        {question: "Which service is like a retro typewriter - processes text?", options: ["A) S3", "B) EC2", "C) Lambda", "D) RDS"], correct: 2},
+        {question: "EC2 security groups act as?", options: ["A) Virtual firewalls", "B) Load balancers", "C) Storage systems", "D) Databases"], correct: 0},
+        {question: "S3 can host?", options: ["A) Static websites", "B) Dynamic websites", "C) Databases", "D) Virtual machines"], correct: 0},
+        {question: "Which service is like a retro phone booth - temporary usage?", options: ["A) RDS", "B) S3", "C) Lambda", "D) EC2"], correct: 2},
+        {question: "Lambda functions are?", options: ["A) Stateless", "B) Stateful", "C) Both", "D) Neither"], correct: 0},
+        {question: "RDS Multi-AZ provides?", options: ["A) High availability", "B) Read replicas", "C) Backup storage", "D) Load balancing"], correct: 0},
+        {question: "Which service is like a retro vending machine - serves on demand?", options: ["A) EC2", "B) RDS", "C) Lambda", "D) S3"], correct: 2},
+        {question: "EC2 AMI stands for?", options: ["A) Amazon Machine Image", "B) Automatic Machine Instance", "C) Amazon Memory Interface", "D) Advanced Machine Intelligence"], correct: 0},
+        {question: "S3 Transfer Acceleration uses?", options: ["A) CloudFront", "B) Direct Connect", "C) VPN", "D) Load Balancers"], correct: 0},
+        {question: "Which service is like a retro cash register - counts everything?", options: ["A) Lambda", "B) S3", "C) RDS", "D) EC2"], correct: 1},
+        {question: "Lambda layers are used for?", options: ["A) Sharing code", "B) Storage", "C) Networking", "D) Security"], correct: 0},
+        {question: "RDS read replicas provide?", options: ["A) Write scaling", "B) Read scaling", "C) Backup only", "D) Security"], correct: 1},
+        {question: "Which service is like a retro projector - displays content?", options: ["A) Lambda", "B) RDS", "C) S3", "D) EC2"], correct: 2},
+        {question: "EC2 placement groups optimize?", options: ["A) Network performance", "B) Storage performance", "C) Cost", "D) Security"], correct: 0},
+        {question: "S3 lifecycle policies can?", options: ["A) Delete objects", "B) Transition storage classes", "C) Both A and B", "D) Neither"], correct: 2},
+        {question: "Which service is like a retro alarm clock - triggers at set times?", options: ["A) S3", "B) EC2", "C) Lambda", "D) RDS"], correct: 2},
+        {question: "Lambda environment variables are?", options: ["A) Encrypted at rest", "B) Plain text only", "C) Not supported", "D) Temporary only"], correct: 0},
+        {question: "RDS parameter groups control?", options: ["A) Database configuration", "B) Network settings", "C) Storage size", "D) Backup frequency"], correct: 0},
+        {question: "Which service is like a retro music box - plays when opened?", options: ["A) RDS", "B) EC2", "C) Lambda", "D) S3"], correct: 2},
+        {question: "EC2 user data scripts run?", options: ["A) At instance launch", "B) Every hour", "C) On shutdown", "D) Never"], correct: 0}
     ];
 
     static getRandomQuestion() {

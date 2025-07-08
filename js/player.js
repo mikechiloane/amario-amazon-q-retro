@@ -36,37 +36,50 @@ class Player {
     }
 
     draw(ctx) {
-        // Box outline
+        // Blocky retro body with rough edges
         ctx.fillStyle = '#000';
         ctx.fillRect(this.x-1, this.y-1, this.w+2, this.h+2);
+        
+        // Main body blocks
         ctx.fillStyle = this.color;
-        ctx.fillRect(this.x, this.y, this.w, this.h);
-        
-        // Draw face based on expression
-        ctx.fillStyle = '#000';
-        
-        // Eyes
-        if (this.expression === 'worried') {
-            ctx.fillRect(this.x+4, this.y+6, 2, 4); // worried eyes
-            ctx.fillRect(this.x+14, this.y+6, 2, 4);
-        } else {
-            ctx.fillRect(this.x+5, this.y+8, 3, 3); // normal eyes
-            ctx.fillRect(this.x+12, this.y+8, 3, 3);
+        for (let i = 0; i < this.w; i += 4) {
+            for (let j = 0; j < this.h; j += 4) {
+                if ((i + j) % 8 === 0) {
+                    ctx.fillRect(this.x + i, this.y + j, 4, 4);
+                } else {
+                    ctx.fillRect(this.x + i, this.y + j, 3, 3);
+                }
+            }
         }
         
-        // Mouth
+        // Darker blocks for depth
+        ctx.fillStyle = '#cc4444';
+        ctx.fillRect(this.x+2, this.y+2, 2, 2);
+        ctx.fillRect(this.x+6, this.y+6, 2, 2);
+        ctx.fillRect(this.x+14, this.y+10, 2, 2);
+        ctx.fillRect(this.x+10, this.y+18, 2, 2);
+        
+        // Blocky face
+        ctx.fillStyle = '#000';
+        if (this.expression === 'worried') {
+            ctx.fillRect(this.x+4, this.y+6, 2, 4);
+            ctx.fillRect(this.x+14, this.y+6, 2, 4);
+        } else {
+            ctx.fillRect(this.x+4, this.y+8, 4, 4);
+            ctx.fillRect(this.x+12, this.y+8, 4, 4);
+        }
+        
+        // Blocky mouth
         if (this.expression === 'happy') {
-            ctx.fillRect(this.x+6, this.y+16, 2, 2); // smile
+            ctx.fillRect(this.x+6, this.y+16, 2, 2);
             ctx.fillRect(this.x+8, this.y+18, 4, 2);
             ctx.fillRect(this.x+12, this.y+16, 2, 2);
         } else if (this.expression === 'worried') {
-            ctx.fillRect(this.x+6, this.y+18, 2, 2); // frown
+            ctx.fillRect(this.x+6, this.y+18, 2, 2);
             ctx.fillRect(this.x+8, this.y+16, 4, 2);
             ctx.fillRect(this.x+12, this.y+18, 2, 2);
-        } else if (this.expression === 'determined') {
-            ctx.fillRect(this.x+7, this.y+17, 6, 2); // straight line
         } else {
-            ctx.fillRect(this.x+7, this.y+15, 6, 2); // normal
+            ctx.fillRect(this.x+6, this.y+15, 8, 2);
         }
         
         // IAM label

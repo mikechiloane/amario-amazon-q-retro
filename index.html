@@ -9,19 +9,34 @@
         h1 { color: #e74c3c; font-size: 2em; margin: 20px; text-shadow: 3px 3px 0px #000, -1px -1px 0px #000, 1px -1px 0px #000, -1px 1px 0px #000; animation: glow 2s ease-in-out infinite alternate; }
         p { font-size: 10px; margin: 15px; }
         @keyframes glow { from { text-shadow: 3px 3px 0px #000, -1px -1px 0px #000, 1px -1px 0px #000, -1px 1px 0px #000, 0 0 10px #e74c3c; } to { text-shadow: 3px 3px 0px #000, -1px -1px 0px #000, 1px -1px 0px #000, -1px 1px 0px #000, 0 0 20px #e74c3c, 0 0 30px #e74c3c; } }
+        .mobile-controls { display: none; margin-top: 20px; }
+        @media (max-width: 768px) { .mobile-controls { display: flex; justify-content: space-between; align-items: center; } }
+        .dpad { display: flex; gap: 10px; }
+        .mobile-controls button { background: #0f3460; color: #fff; border: 2px solid #fff; padding: 15px 20px; font-family: 'Press Start 2P', monospace; font-size: 12px; border-radius: 0; box-shadow: 0 0 10px #0f3460; }
+        .mobile-controls button:active { background: #ff6b6b; transform: scale(0.95); }
     </style>
 </head>
 <body>
     <h1>AMARIO</h1>
     <canvas id="game" width="800" height="400"></canvas>
     <p>Arrow Keys + Space to Jump | Score: <span id="score">0</span></p>
+    <div id="mobile-controls" class="mobile-controls">
+        <div class="dpad">
+            <button id="btn-left">←</button>
+            <button id="btn-right">→</button>
+        </div>
+        <button id="btn-jump">JUMP</button>
+    </div>
     
     <script src="levels/level1.js"></script>
     <script src="levels/level2.js"></script>
     <script src="levels/level3.js"></script>
+    <script src="levels/level4.js"></script>
+    <script src="levels/level5.js"></script>
     <script src="js/player.js"></script>
     <script src="js/enemy.js"></script>
     <script src="js/coin.js"></script>
+    <script src="js/obstacle.js"></script>
     <script src="js/collision.js"></script>
     <script src="js/camera.js"></script>
     <script src="js/level.js"></script>

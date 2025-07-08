@@ -47,26 +47,55 @@ class Enemy {
     draw(ctx) {
         const yPos = this.y + (this.config.behavior === 'bounce' ? Math.sin(this.bounceOffset) * 3 : 0);
         
-        // Service box with outline
+        // Blocky enemy outline
         ctx.fillStyle = '#000';
         ctx.fillRect(this.x-1, yPos-1, this.w+2, this.h+2);
-        ctx.fillStyle = this.color;
-        ctx.fillRect(this.x, yPos, this.w, this.h);
         
-        // Service symbol
+        // Rough blocky body
+        ctx.fillStyle = this.color;
+        for (let i = 0; i < this.w; i += 3) {
+            for (let j = 0; j < this.h; j += 3) {
+                const blockSize = (i + j) % 6 === 0 ? 3 : 2;
+                ctx.fillRect(this.x + i, yPos + j, blockSize, blockSize);
+            }
+        }
+        
+        // Darker blocks for rough texture
+        const darkColor = this.service === 'ec2' ? '#cc6600' : 
+                         this.service === 'lambda' ? '#cc6600' :
+                         this.service === 'rds' ? '#2a2a99' : '#336633';
+        ctx.fillStyle = darkColor;
+        ctx.fillRect(this.x+1, yPos+1, 2, 2);
+        ctx.fillRect(this.x+5, yPos+3, 2, 2);
+        ctx.fillRect(this.x+9, yPos+1, 2, 2);
+        ctx.fillRect(this.x+3, yPos+8, 2, 2);
+        ctx.fillRect(this.x+11, yPos+7, 2, 2);
+        
+        // Blocky service symbol
         ctx.fillStyle = '#fff';
         ctx.font = '6px monospace';
         ctx.textAlign = 'center';
         ctx.fillText(this.config.symbol, this.x + this.w/2, yPos + this.h/2 + 1);
         
-        // Service-specific decorations
+        // Service name below enemy
+        ctx.fillStyle = '#fff';
+        ctx.font = '5px monospace';
+        ctx.fillText(this.service.toUpperCase(), this.x + this.w/2, yPos + this.h + 8);
+        
+        // Service-specific blocky decorations
         if (this.service === 'lambda') {
             ctx.fillStyle = '#ffcc00';
-            ctx.fillRect(this.x+1, yPos+1, 2, 2); // serverless spark
+            ctx.fillRect(this.x+1, yPos+1, 2, 2);
+            ctx.fillRect(this.x+12, yPos+2, 1, 1);
         } else if (this.service === 'rds') {
             ctx.fillStyle = '#ffffff';
-            ctx.fillRect(this.x+12, yPos+2, 2, 1); // database lines
+            ctx.fillRect(this.x+12, yPos+2, 2, 1);
             ctx.fillRect(this.x+12, yPos+5, 2, 1);
+            ctx.fillRect(this.x+12, yPos+8, 2, 1);
+        } else if (this.service === 's3') {
+            ctx.fillStyle = '#228B22';
+            ctx.fillRect(this.x+2, yPos+12, 2, 2);
+            ctx.fillRect(this.x+11, yPos+12, 2, 2);
         }
     }
 }

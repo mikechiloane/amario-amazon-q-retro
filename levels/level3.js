@@ -19,6 +19,13 @@ const level3 = {
         {x: 1020, y: 210, vx: 1, service: 'lambda'},
         {x: 1220, y: 130, vx: -1, service: 'ec2'}
     ],
+    obstacles: [
+        {x: 250, y: 360, type: 'spike'},
+        {x: 380, y: 352, type: 'pit'},
+        {x: 600, y: 350, type: 'block'},
+        {x: 950, y: 360, type: 'spike'},
+        {x: 1150, y: 352, type: 'pit'}
+    ],
     coins: [
         {x: 180, y: 290}, {x: 310, y: 240}, {x: 440, y: 190},
         {x: 570, y: 140}, {x: 700, y: 90}, {x: 850, y: 150},
