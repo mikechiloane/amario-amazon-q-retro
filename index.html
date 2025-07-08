@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>AMARIO</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
+        body { margin: 0; padding: 20px; background: linear-gradient(45deg, #1a1a2e, #16213e); color: #fff; font-family: 'Press Start 2P', monospace; text-align: center; }
+        canvas { border: 4px solid #0f3460; background: #5dade2; image-rendering: pixelated; box-shadow: 0 0 20px #0f3460; }
+        h1 { color: #e74c3c; font-size: 2em; margin: 20px; text-shadow: 3px 3px 0px #000, -1px -1px 0px #000, 1px -1px 0px #000, -1px 1px 0px #000; animation: glow 2s ease-in-out infinite alternate; }
+        p { font-size: 10px; margin: 15px; }
+        @keyframes glow { from { text-shadow: 3px 3px 0px #000, -1px -1px 0px #000, 1px -1px 0px #000, -1px 1px 0px #000, 0 0 10px #e74c3c; } to { text-shadow: 3px 3px 0px #000, -1px -1px 0px #000, 1px -1px 0px #000, -1px 1px 0px #000, 0 0 20px #e74c3c, 0 0 30px #e74c3c; } }
+    </style>
+</head>
+<body>
+    <h1>AMARIO</h1>
+    <canvas id="game" width="800" height="400"></canvas>
+    <p>Arrow Keys + Space to Jump | Score: <span id="score">0</span></p>
+    
+    <script src="levels/level1.js"></script>
+    <script src="levels/level2.js"></script>
+    <script src="levels/level3.js"></script>
+    <script src="js/player.js"></script>
+    <script src="js/enemy.js"></script>
+    <script src="js/coin.js"></script>
+    <script src="js/collision.js"></script>
+    <script src="js/camera.js"></script>
+    <script src="js/level.js"></script>
+    <script src="js/quiz.js"></script>
+    <script src="js/game.js"></script>
+    <script>new Game();</script>
+</body>
+</html>
