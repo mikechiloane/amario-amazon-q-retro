@@ -49,16 +49,22 @@ class Game {
         const btnJump = document.getElementById('btn-jump');
         
         if (btnLeft) {
-            btnLeft.addEventListener('touchstart', e => { e.preventDefault(); this.keys.ArrowLeft = true; });
-            btnLeft.addEventListener('touchend', e => { e.preventDefault(); this.keys.ArrowLeft = false; });
+            btnLeft.addEventListener('touchstart', e => { e.preventDefault(); this.keys['ArrowLeft'] = true; });
+            btnLeft.addEventListener('touchend', e => { e.preventDefault(); this.keys['ArrowLeft'] = false; });
+            btnLeft.addEventListener('mousedown', e => { e.preventDefault(); this.keys['ArrowLeft'] = true; });
+            btnLeft.addEventListener('mouseup', e => { e.preventDefault(); this.keys['ArrowLeft'] = false; });
         }
         if (btnRight) {
-            btnRight.addEventListener('touchstart', e => { e.preventDefault(); this.keys.ArrowRight = true; });
-            btnRight.addEventListener('touchend', e => { e.preventDefault(); this.keys.ArrowRight = false; });
+            btnRight.addEventListener('touchstart', e => { e.preventDefault(); this.keys['ArrowRight'] = true; });
+            btnRight.addEventListener('touchend', e => { e.preventDefault(); this.keys['ArrowRight'] = false; });
+            btnRight.addEventListener('mousedown', e => { e.preventDefault(); this.keys['ArrowRight'] = true; });
+            btnRight.addEventListener('mouseup', e => { e.preventDefault(); this.keys['ArrowRight'] = false; });
         }
         if (btnJump) {
-            btnJump.addEventListener('touchstart', e => { e.preventDefault(); this.keys.Space = true; });
-            btnJump.addEventListener('touchend', e => { e.preventDefault(); this.keys.Space = false; });
+            btnJump.addEventListener('touchstart', e => { e.preventDefault(); this.keys['Space'] = true; });
+            btnJump.addEventListener('touchend', e => { e.preventDefault(); this.keys['Space'] = false; });
+            btnJump.addEventListener('mousedown', e => { e.preventDefault(); this.keys['Space'] = true; });
+            btnJump.addEventListener('mouseup', e => { e.preventDefault(); this.keys['Space'] = false; });
         }
     }
 
