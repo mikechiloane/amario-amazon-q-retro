@@ -9,10 +9,9 @@
         h1 { color: #e74c3c; font-size: 2em; margin: 20px; text-shadow: 3px 3px 0px #000, -1px -1px 0px #000, 1px -1px 0px #000, -1px 1px 0px #000; animation: glow 2s ease-in-out infinite alternate; }
         p { font-size: 10px; margin: 15px; }
         @keyframes glow { from { text-shadow: 3px 3px 0px #000, -1px -1px 0px #000, 1px -1px 0px #000, -1px 1px 0px #000, 0 0 10px #e74c3c; } to { text-shadow: 3px 3px 0px #000, -1px -1px 0px #000, 1px -1px 0px #000, -1px 1px 0px #000, 0 0 20px #e74c3c, 0 0 30px #e74c3c; } }
-        .mobile-controls { display: none; margin-top: 20px; }
-        @media (max-width: 768px) { .mobile-controls { display: flex; justify-content: space-between; align-items: center; } }
+        .mobile-controls { display: flex !important; justify-content: space-between; align-items: center; margin-top: 20px; width: 100%; }
         .dpad { display: flex; gap: 10px; }
-        .mobile-controls button { background: #0f3460; color: #fff; border: 2px solid #fff; padding: 15px 20px; font-family: 'Press Start 2P', monospace; font-size: 12px; border-radius: 0; box-shadow: 0 0 10px #0f3460; }
+        .mobile-controls button { background: #0f3460; color: #fff; border: 2px solid #fff; padding: 15px 20px; font-family: 'Press Start 2P', monospace; font-size: 12px; border-radius: 0; box-shadow: 0 0 10px #0f3460; touch-action: manipulation; }
         .mobile-controls button:active { background: #ff6b6b; transform: scale(0.95); }
         #restart-btn { background: #e74c3c; color: #fff; border: 2px solid #fff; padding: 10px 20px; font-family: 'Press Start 2P', monospace; font-size: 8px; margin: 10px; border-radius: 0; box-shadow: 0 0 10px #e74c3c; }
         #restart-btn:hover { background: #c0392b; cursor: pointer; }

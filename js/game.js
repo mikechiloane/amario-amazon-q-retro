@@ -73,7 +73,12 @@ class Game {
                     this.gameState = 'playing';
                     this.resetQuizState();
                 } else {
-                    this.restartGame();
+                    this.player.x = 50;
+                    this.player.y = 300;
+                    this.player.vx = 0;
+                    this.player.vy = 0;
+                    this.gameState = 'playing';
+                    this.resetQuizState();
                 }
             }
             return;
